@@ -1,7 +1,7 @@
 console.log("Hello from the script file.");
 
 // Randomly returns one of the three strings "rock", "paper" or "scissors".
-function getComputerChoice () {
+function getComputerChoice() {
     const random3 = Math.floor((Math.random() * 3) + 1);
     if (random3 === 1) {
             return "rock"
@@ -13,3 +13,10 @@ function getComputerChoice () {
 }
 
 console.log(getComputerChoice());
+
+// Prompts user and returns string from user input (ideally rock, paper or scissors)
+function getHumanChoice() {
+    return prompt("Please enter rock, paper or scissors.", "rock");
+}
+
+console.log(getHumanChoice());
