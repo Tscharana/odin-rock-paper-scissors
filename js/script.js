@@ -18,3 +18,15 @@ function getHumanChoice() {
 // Create global winning conditions for user and computer
 let humanScore = 0;
 let computerScore = 0;
+
+// Plays one round humanSelection against computerSelection
+function playRound(humanChoice, computerChoice) {
+    humanChoice = humanChoice.toLowerCase();
+    console.log(humanChoice + " " + computerChoice);
+}
+
+// Gets humanSelection and computerSelection
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
