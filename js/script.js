@@ -10,51 +10,55 @@ function getComputerChoice() {
         }
 }
 
-// Prompts user and returns string from user input (ideally rock, paper or scissors)
-function getHumanChoice() {
-    return prompt("Please enter rock, paper or scissors.", "rock");
-}
+// Create global winning conditions for user and computer
+let humanScore = 0;
+let computerScore = 0;
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissors");
+const body = document.querySelector("body");
 
-// Plays 5 rounds of playRound(), keeps the score and declare winner or tie in the end with console.log
-function playGame() {
-
-    // Create global winning conditions for user and computer
-    let humanScore = 0;
-    let computerScore = 0;
-
-    // Plays one round humanSelection against computerSelection and use console.log to announce winner, choices and score
-    function playRound(humanChoice, computerChoice) {
-        humanChoice = humanChoice.toLowerCase();
-        console.log(humanChoice + " " + computerChoice);
-
-        if ((humanChoice === "rock" && computerChoice === "scissors")
-        || (humanChoice === "paper" && computerChoice === "rock")
-        || (humanChoice === "scissors" && computerChoice === "paper"))
-        {
-            humanScore++;
-            console.log(`You win! Your ${humanChoice} beats ${computerChoice}. You have ${humanScore} points. The computer has ${computerScore} points.`);
-        } else if (humanChoice === computerChoice) {
-            console.log(`It's a tie. You both choose ${humanChoice}.`);
-        } else {
-            computerScore++;
-            console.log(`You lose! Your ${humanChoice} is beaten by ${computerChoice}. You have ${humanScore} points. The computer has ${computerScore} points.`);
-        }
+body.addEventListener("click", (event) => {
+    if (event.target.id === "rock" || event.target.id === "paper" || event.target.id === "scissors") {
+        playRound(event.target.id);
     }
+});
 
-    // Gets humanSelection and computerSelection
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
 
-    playRound(humanSelection, computerSelection);
+// Plays one round humanSelection against computerSelection and use console.log to announce winner, choices and score
+function playRound(humanChoice) {
+    humanChoice = humanChoice.toLowerCase();
+    let computerChoice = getComputerChoice();
+    console.log(humanChoice + " " + computerChoice);
 
-    // Show the results of 5 rounds with console.log
-    if (humanScore > computerScore) {
-        console.log(`You win after 1 round! You have ${humanScore} points. The computer has ${computerScore} points.`);
-    } else if (humanScore === computerScore) {
-        console.log(`Tie after 1 round! You have ${humanScore} points. The computer has ${computerScore} points.`);
+    if ((humanChoice === "rock" && computerChoice === "scissors")
+    || (humanChoice === "paper" && computerChoice === "rock")
+    || (humanChoice === "scissors" && computerChoice === "paper"))
+    {
+        humanScore++;
+        console.log(`You win! Your ${humanChoice} beats ${computerChoice}. You have ${humanScore} points. The computer has ${computerScore} points.`);
+    } else if (humanChoice === computerChoice) {
+        console.log(`It's a tie. You both choose ${humanChoice}.`);
     } else {
-        console.log(`You lose after 1 round! You have ${humanScore} points. The computer has ${computerScore} points.`);
+        computerScore++;
+        console.log(`You lose! Your ${humanChoice} is beaten by ${computerChoice}. You have ${humanScore} points. The computer has ${computerScore} points.`);
     }
 }
 
-playGame();
+
+
+
+// // Gets humanSelection and computerSelection
+// const humanSelection = getHumanChoice();
+// const computerSelection = getComputerChoice();
+
+// playRound(humanSelection, computerSelection);
+
+// // Show the results of 5 rounds with console.log
+// if (humanScore > computerScore) {
+//     console.log(`You win after 1 round! You have ${humanScore} points. The computer has ${computerScore} points.`);
+// } else if (humanScore === computerScore) {
+//     console.log(`Tie after 1 round! You have ${humanScore} points. The computer has ${computerScore} points.`);
+// } else {
+//     console.log(`You lose after 1 round! You have ${humanScore} points. The computer has ${computerScore} points.`);
+// }
