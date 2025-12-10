@@ -41,24 +41,20 @@ function playGame() {
         }
     }
 
-    for (i = 0; i < 5; i++) {
-        // Gets humanSelection and computerSelection
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
+    // Gets humanSelection and computerSelection
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
 
-        playRound(humanSelection, computerSelection);
-    }
+    playRound(humanSelection, computerSelection);
 
     // Show the results of 5 rounds with console.log
     if (humanScore > computerScore) {
-        console.log(`You win after 5 rounds! You have ${humanScore} points. The computer has ${computerScore} points.`);
+        console.log(`You win after 1 round! You have ${humanScore} points. The computer has ${computerScore} points.`);
     } else if (humanScore === computerScore) {
-        console.log(`Tie after 5 rounds! You have ${humanScore} points. The computer has ${computerScore} points.`);
+        console.log(`Tie after 1 round! You have ${humanScore} points. The computer has ${computerScore} points.`);
     } else {
-        console.log(`You lose after 5 rounds! You have ${humanScore} points. The computer has ${computerScore} points.`);
+        console.log(`You lose after 1 round! You have ${humanScore} points. The computer has ${computerScore} points.`);
     }
 }
-
-// Test
 
 playGame();
