@@ -48,7 +48,16 @@ function playRound(humanChoice) {
     }
     human.textContent = `Human score: ${humanScore} points.`;
     computer.textContent = `Computer score: ${computerScore} points.`;
-    
+    if (humanScore >= 5)
+    {
+        output.textContent += "You reached 5 points and win the whole game.";
+        humanScore = 0;
+        computerScore = 0;
+    } else if (computerScore >= 5) {
+        output.textContent += " The computer reached 5 points and win the whole game.";
+        humanScore = 0;
+        computerScore = 0;
+    }
 }
 
 
