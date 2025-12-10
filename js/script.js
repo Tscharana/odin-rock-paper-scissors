@@ -15,7 +15,6 @@ let humanScore = 0;
 let computerScore = 0;
 
 // Reference all relevant elements
-
 const controls = document.querySelector("#controls");
 const output = document.querySelector("#output");
 const human = document.querySelector("#humanscore");
