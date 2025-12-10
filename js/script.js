@@ -18,6 +18,8 @@ const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
 const body = document.querySelector("body");
 const output = document.querySelector("#output")
+const human = document.querySelector("#humanscore");
+const computer = document.querySelector("#computerscore");
 
 body.addEventListener("click", (event) => {
     if (event.target.id === "rock" || event.target.id === "paper" || event.target.id === "scissors") {
@@ -44,6 +46,9 @@ function playRound(humanChoice) {
         computerScore++;
         output.textContent = `You lose! Your ${humanChoice} is beaten by ${computerChoice}. You have ${humanScore} points. The computer has ${computerScore} points.`;
     }
+    human.textContent = `Human score: ${humanScore} points.`;
+    computer.textContent = `Computer score: ${computerScore} points.`;
+    
 }
 
 
