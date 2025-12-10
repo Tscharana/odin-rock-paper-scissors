@@ -59,4 +59,6 @@ function playGame() {
     }
 }
 
+// Test
+
 playGame();
