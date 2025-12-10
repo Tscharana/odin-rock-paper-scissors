@@ -13,22 +13,22 @@ function getComputerChoice() {
 // Create global winning conditions for user and computer
 let humanScore = 0;
 let computerScore = 0;
-const rock = document.querySelector("#rock");
-const paper = document.querySelector("#paper");
-const scissors = document.querySelector("#scissors");
-const body = document.querySelector("body");
-const output = document.querySelector("#output")
+
+// Reference all relevant elements
+
+const controls = document.querySelector("#controls");
+const output = document.querySelector("#output");
 const human = document.querySelector("#humanscore");
 const computer = document.querySelector("#computerscore");
 
-body.addEventListener("click", (event) => {
+// Play a round whenever a button is clicked
+controls.addEventListener("click", (event) => {
     if (event.target.id === "rock" || event.target.id === "paper" || event.target.id === "scissors") {
         playRound(event.target.id);
     }
 });
 
-
-// Plays one round humanSelection against computerSelection and use console.log to announce winner, choices and score
+// Plays one round humanSelection against computerSelection and use output.textContent to announce winner, choices and score
 function playRound(humanChoice) {
     humanChoice = humanChoice.toLowerCase();
     let computerChoice = getComputerChoice();
@@ -46,34 +46,20 @@ function playRound(humanChoice) {
         computerScore++;
         output.textContent = `You lose! Your ${humanChoice} is beaten by ${computerChoice}. You have ${humanScore} points. The computer has ${computerScore} points.`;
     }
+ 
+    // Update Score-Output
     human.textContent = `Human score: ${humanScore} points.`;
     computer.textContent = `Computer score: ${computerScore} points.`;
+ 
+    // Whoever has 5 points wins the game and the score is reset
     if (humanScore >= 5)
     {
-        output.textContent += "You reached 5 points and win the whole game.";
+        output.textContent += "You reached 5 points and won the whole game.";
         humanScore = 0;
         computerScore = 0;
     } else if (computerScore >= 5) {
-        output.textContent += " The computer reached 5 points and win the whole game.";
+        output.textContent += " The computer reached 5 points and won the whole game.";
         humanScore = 0;
         computerScore = 0;
     }
 }
-
-
-
-
-// // Gets humanSelection and computerSelection
-// const humanSelection = getHumanChoice();
-// const computerSelection = getComputerChoice();
-
-// playRound(humanSelection, computerSelection);
-
-// // Show the results of 5 rounds with console.log
-// if (humanScore > computerScore) {
-//     console.log(`You win after 1 round! You have ${humanScore} points. The computer has ${computerScore} points.`);
-// } else if (humanScore === computerScore) {
-//     console.log(`Tie after 1 round! You have ${humanScore} points. The computer has ${computerScore} points.`);
-// } else {
-//     console.log(`You lose after 1 round! You have ${humanScore} points. The computer has ${computerScore} points.`);
-// }
